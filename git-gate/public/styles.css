@@ -15,14 +15,43 @@ html, body {
 #bench      {grid-area: 3 / 1 / 4 / 2;}
 #textBox    {grid-area: 1 / 2 / 3 / 3;}
 #files      {grid-area: 2 / 2 / 3 / 3;}
+
+
 #terminal   {
     grid-area: 3 / 2 / 4 / 3;
     background-color: black;
-    border: 5px green solid;
+    display: grid;
+    grid-template-rows: 80% 20%;
 }
-
-#terminalInput {
-    
+#terminalInputBox {
+    /* border-top: 2px green solid; */
+    padding-left: 1%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.TerminalDirectory {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    height: 20px;
+    max-width: 50%;
+    float: right;
+    white-space: nowrap;
+    overflow: hidden;
+    direction: rtl;
+}
+.TerminalDirectory::before {
+    content: "<";
+}
+.terminalInput {
+    background-color: black;
+    flex: 1;
+    color: white;
+    border: none;
+    padding: 4px;
+    outline: none;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1em;
 }
 
 

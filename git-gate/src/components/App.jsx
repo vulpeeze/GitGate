@@ -2,7 +2,7 @@ import React from "react";
 import Bench from "./Bench";
 import Files from "./Files";
 import Footer from "./Footer";
-import Terminal from "./Terminal";
+import Terminal from "./Terminal/Terminal";
 import TextBox from "./TextBox";
 import Visuals from "./Visual";
 import {ThemeProvider, createTheme } from "@mui/material/styles";
