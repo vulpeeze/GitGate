@@ -1,5 +1,4 @@
 import React from "react";
-import Bench from "./Bench";
 import Files from "./Files";
 import Footer from "./Footer";
 import Terminal from "./Terminal/Terminal";
@@ -29,7 +28,6 @@ function App() {
     return (<div className="container">
         <ThemeProvider theme={theme}>
             <Visuals />
-            <Bench />
             <TextBox />
             <Files />
             <Terminal />
