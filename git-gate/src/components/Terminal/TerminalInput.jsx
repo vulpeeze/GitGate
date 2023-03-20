@@ -87,9 +87,25 @@ function TerminalInput(props) {
                             sendToLog(userInput, "Git repository not initialized.");
                             break;
                         }
+                        if (props.repo.stagedFiles.length === 0) {
+                            sendToLog(userInput, "No files staged for commit.");
+                            break;
+                        }
                         const commitMessage = match[1];
+                        const commit = {
+                            id: props.repo.commits.length + 1,
+                            message: commitMessage,
+                            timestamp: new Date().toISOString(),
+                            changes: [...props.repo.stagedFiles]
+                        };
+                        props.setRepo({
+                            ...props.repo,
+                            commits: [...props.repo.commits, commit],
+                            stagedFiles: []
+                        });
                         sendToLog(userInput, `Committed Changes with message: ${commitMessage}`);
                         break;
+                        
                     case "git status":
                         sendToLog(userInput, "Check your status");
                         break;
