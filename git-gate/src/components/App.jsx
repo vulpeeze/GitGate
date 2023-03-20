@@ -37,7 +37,6 @@ function App() {
     const [gitRepo, setGitRepo] = useState({
         initialized: false,
         stagedFiles: [],
-        committedFiles: [],
         branches: [],
         activeBranch: "main",
         commits: [],

@@ -36,7 +36,6 @@ function TerminalInput(props) {
                         const newRepo = {
                             initialized: true,
                             stagedFiles: [],
-                            committedFiles: [],
                             branches: [{ name: "master", head: null }],
                             activeBranch: "master",
                             commits: [],
@@ -141,6 +140,7 @@ function TerminalInput(props) {
                     case "git push":
                         sendToLog(userInput, "Pushed");
                         break;
+                    
                     case "git pull":
                         sendToLog(userInput, "Pulled");
                         console.log(props.repo);
