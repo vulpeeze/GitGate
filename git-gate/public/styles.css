@@ -17,8 +17,24 @@ html, body {
 #files      {
     grid-area: 3 / 1 / 4 / 2;
     background-color: #1b2336;
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-
+.file {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.fileIcon {
+    border: 10px #292a6d solid;
+    background-color: #292a6d;
+    border-radius: 100%;
+    font-size: 50px;
+}
 
 #textBox    {
     grid-area: 1 / 2 / 3 / 3;

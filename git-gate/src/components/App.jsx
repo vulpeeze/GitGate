@@ -1,5 +1,5 @@
-import React from "react";
-import Files from "./Files";
+import React, { useState } from "react";
+import Files from "./Files/Files";
 import Footer from "./Footer";
 import Terminal from "./Terminal/Terminal";
 import TextBox from "./TextBox";
@@ -21,16 +21,36 @@ const theme = createTheme({
             light: '#c3d9fc',
             dark: '#628bc8',
         },
+        white: {
+            main: '#ffffff',
+        },
     }
   });
 
 function App() {
+    const [filesList, setFilesList] = useState([
+        {name: "File C", content: "Tamamo no Mae"},
+        {name: "File A", content: "Tamamo Vitch"},
+        {name: "File R", content: "Tamamo Gucci"}
+    ]);
+
+    const [gitRepo, setGitRepo] = useState({
+        initialized: false,
+        stagedFiles: [],
+        committedFiles: [],
+        branches: [],
+        activeBranch: "main",
+        commits: [],
+        currentCommit: null,
+        history: []
+    });
+
     return (<div className="container">
         <ThemeProvider theme={theme}>
             <Visuals />
             <TextBox />
-            <Files />
-            <Terminal />
+            <Files files={filesList} />
+            <Terminal files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} />
             <Footer />
         </ThemeProvider>
     </div>
