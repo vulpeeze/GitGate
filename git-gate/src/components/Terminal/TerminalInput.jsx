@@ -105,13 +105,39 @@ function TerminalInput(props) {
                         });
                         sendToLog(userInput, `Committed Changes with message: ${commitMessage}`);
                         break;
-                        
+
                     case "git status":
-                        sendToLog(userInput, "Check your status");
+                        if (!props.repo.initialized) {
+                            sendToLog(userInput, "Git repository not initialized.");
+                            break;
+                        }
+                        const stagedFilesToShow = props.repo.stagedFiles.map(file => file.name);
+                        const stagedFilesToShowList = ["Changes ready to be committed:"];
+                        if (stagedFilesToShow.length > 0) {
+                            stagedFilesToShow.forEach(file => stagedFilesToShowList.push(file));
+                            sendToLog(userInput, stagedFilesToShowList.join("\n"))
+                        } else {
+                            sendToLog(userInput, "No changes ready to be committed.");
+                        }
                         break;
+
                     case "git log":
-                        sendToLog(userInput, "Here's your log");
+                        if (!props.repo.initialized) {
+                            sendToLog(userInput, "Git repository not initialized.");
+                            break;
+                        }
+                        const commitHistory = props.repo.commits;
+                        if (commitHistory.length === 0) {
+                            sendToLog(userInput, "No commits yet.");
+                            break;
+                        }
+                        const commitHistoryList = ["Commit History:"];
+                        commitHistory.forEach(commit => {
+                            commitHistoryList.push(`Commit ${commit.id}: ${commit.message} (${commit.timestamp})`);
+                        });
+                        sendToLog(userInput, commitHistoryList.join("\n"));
                         break;
+                        
                     case "git push":
                         sendToLog(userInput, "Pushed");
                         break;
