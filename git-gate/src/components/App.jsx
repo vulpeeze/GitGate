@@ -45,7 +45,8 @@ function App() {
         branches: [],
         activeBranch: "main",
         commits: [],
-        currentCommit: null
+        currentCommit: null,
+        trackedFiles: []
     });
 
     const [gitRemoteRepo, setGitRemoteRepo] = useState({
@@ -84,7 +85,7 @@ function App() {
         <ThemeProvider theme={theme}>
             <Visuals />
             <TextBox />
-            <Files files={filesList} />
+            <Files files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} />
             <Terminal files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} remoteRepo={gitRemoteRepo} setRemoteRepo={setGitRemoteRepo} author={authorDetails} setAuthor={setAuthorDetails} />
             <Footer />
         </ThemeProvider>

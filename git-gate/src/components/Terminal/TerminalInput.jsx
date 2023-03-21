@@ -43,7 +43,8 @@ function TerminalInput(props) {
                             branches: [{ name: "main", head: null }],
                             activeBranch: "main",
                             commits: [],
-                            currentCommit: null
+                            currentCommit: null,
+                            trackedFiles: []
                         };
                         props.setRepo(newRepo);
                         sendToLog(userInput, "Initialized empty Git repository.");
@@ -76,7 +77,8 @@ function TerminalInput(props) {
                             activeBranch: props.remoteRepo.activeBranch,
                             currentCommit: props.remoteRepo.currentCommit,
                             commits: newCommits,
-                            stagedFiles: []
+                            stagedFiles: [],
+                            trackedFiles: []
                         };
 
                         props.setRepo(clonedRepo);
@@ -104,14 +106,20 @@ function TerminalInput(props) {
                             sendToLog(userInput, "Git repository not initialized.");
                             break;
                         }
+                        
                         const fileName = match[1];
                         const stagedFiles = [...props.repo.stagedFiles]
                         
                         if (fileName === "." || fileName === "*") {
-                            props.files.forEach(file => {
+                            props.repo.trackedFiles.forEach(file => {
                                 if (!props.repo.stagedFiles.includes(file)) {
                                     stagedFiles.push(file);
                                 }
+                            });
+                            props.setRepo({
+                                ...props.repo,
+                                stagedFiles,
+                                trackedFiles: []
                             });
                             sendToLog(userInput, "All files staged for commit.");
                         } else {
@@ -120,18 +128,24 @@ function TerminalInput(props) {
                                 sendToLog(userInput, "File doesn't exist.")
                                 break;
                             }
-                            const f = props.files.filter((file) => file.name === fileName)[0];
+                            const f = props.repo.trackedFiles.find((file) => file.name === fileName);
+                            if (!f) {
+                                sendToLog(userInput, "Doesn't match the name of any edited files.")
+                                break;
+                            }
                             if (!props.repo.stagedFiles.includes(f)) {
                                 stagedFiles.push(f);
                                 sendToLog(userInput, "Staged file.")
                             } else {
                                 sendToLog(userInput, "File " + f.name + " already staged.")
                             }
+                            
+                            props.setRepo({
+                                ...props.repo,
+                                stagedFiles,
+                                trackedFiles: props.repo.trackedFiles.filter(files => files.name !== f.name)
+                            });
                         }
-                        props.setRepo({
-                            ...props.repo,
-                            stagedFiles
-                        })
                         break;
                         
                     case "git commit":
@@ -164,14 +178,34 @@ function TerminalInput(props) {
                             sendToLog(userInput, "Git repository not initialized.");
                             break;
                         }
+
+                        var statusMessage = ""
+
                         const stagedFilesToShow = props.repo.stagedFiles.map(file => file.name);
+                        console.log(stagedFilesToShow);
                         const stagedFilesToShowList = ["Changes ready to be committed:"];
                         if (stagedFilesToShow.length > 0) {
                             stagedFilesToShow.forEach(file => stagedFilesToShowList.push(file));
-                            sendToLog(userInput, stagedFilesToShowList.join("\n"))
+                            // sendToLog(userInput, stagedFilesToShowList.join("\n"))
+                            statusMessage = statusMessage + stagedFilesToShowList.join("\n");
                         } else {
-                            sendToLog(userInput, "No changes ready to be committed.");
+                            // sendToLog(userInput, "No changes ready to be committed.");
+                            statusMessage = statusMessage + "No changes ready to be committed.\n";
                         }
+
+                        const trackedFilesToShow = props.repo.trackedFiles.map(file => file.name);
+                        const trackedFilesToShowList = ["\nChanges being tracked:"];
+                        if (trackedFilesToShow.length > 0) {
+                            trackedFilesToShow.forEach(file => trackedFilesToShowList.push(file));
+                            // sendToLog(userInput, trackedFilesToShowList.join("\n"))
+                            statusMessage = statusMessage + trackedFilesToShowList.join("\n");
+                        } else {
+                            // sendToLog(userInput, "No files currently being tracked.");
+                            statusMessage = statusMessage + "\nNo files currently being tracked.\n";
+                        }
+
+                        sendToLog(userInput, statusMessage)
+
                         break;
 
                     case "git log":
@@ -186,7 +220,7 @@ function TerminalInput(props) {
                         }
                         const commitHistoryList = ["Commit History:"];
                         commitHistory.forEach(commit => {
-                            commitHistoryList.push(`Commit ${commit.id}: ${commit.message} (${commit.timestamp})`);
+                            commitHistoryList.push(`Commit ${commit.hash}: ${commit.message} (${commit.timestamp})`);
                         });
                         sendToLog(userInput, commitHistoryList.join("\n"));
                         break;
@@ -273,8 +307,13 @@ function TerminalInput(props) {
                     case "touch":
                         const filename = match[1];
                         if (!props.files.some((file) => file.name === filename)) {
-                            props.setFiles([...props.files, { name: filename, content: "" }]);
+                            const newFile = { name: filename, content: "" };
+                            props.setFiles([...props.files, newFile]);
                             sendToLog(userInput, "Created: " + filename);
+                            props.setRepo({
+                                ...props.repo,
+                                trackedFiles: [...props.repo.trackedFiles, newFile]
+                            })
                         } else {
                             sendToLog(userInput, "File '" + filename + "' already exists.");
                         }

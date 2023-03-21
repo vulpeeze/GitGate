@@ -15,6 +15,21 @@ function File(props) {
     }
 
     function handleSave() {
+        const fileList = [...props.files]
+        fileList.find(file => file.name===props.name).content = text;
+        props.setFiles(fileList)
+        var trackedFiles = [...props.repo.trackedFiles];
+        const file = {content: text, name: props.name}
+        if (!trackedFiles.some(trackedFile => trackedFile.name === file.name)) {
+            trackedFiles.push(file)
+        } else if (trackedFiles.find(trackedFile => trackedFile.name === file.name)) {
+            trackedFiles = trackedFiles.filter(trackedFile => trackedFile.name !== file.name);
+            trackedFiles.push(file)
+        }
+        props.setRepo({
+            ...props.repo,
+            trackedFiles: trackedFiles
+        })
         setEditing(false);
     }
 
