@@ -34,14 +34,50 @@ function App() {
         {name: "File R", content: "Tamamo Gucci"}
     ]);
 
+    const [authorDetails, setAuthorDetails] = useState({
+        name: "Filler Name",
+        email: "filler@email.com"
+    })
+
     const [gitRepo, setGitRepo] = useState({
         initialized: false,
         stagedFiles: [],
         branches: [],
         activeBranch: "main",
         commits: [],
-        currentCommit: null,
-        history: []
+        currentCommit: null
+    });
+
+    const [gitRemoteRepo, setGitRemoteRepo] = useState({
+        name: "remoteRepo",
+        url: "https://github.com/your-username/your-repo.git",
+        branches: ["main"],
+        activeBranch: "main",
+        commits: [
+            {
+                hash: "a5c5f5e",
+                message: "Initial commit",
+                branch: 'main',
+                author: "John Doe",
+                date: "2022-01-01 10:00:00",
+                changes: [
+                    { type: "add", name: "index.html" },
+                    { type: "add", name: "styles.css" },
+                    { type: "add", name: "script.js" }
+                ]
+            },
+            {
+                hash: "1",
+                message: "Update styles",
+                branch: 'main',
+                author: "Jane Smith",
+                date: "2022-01-02 14:30:00",
+                changes: [
+                    { type: "edit", name: "styles.css" }
+                ]
+            }
+        ],
+        currentCommit: "a5c5f5e"
     });
 
     return (<div className="container">
@@ -49,7 +85,7 @@ function App() {
             <Visuals />
             <TextBox />
             <Files files={filesList} />
-            <Terminal files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} />
+            <Terminal files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} remoteRepo={gitRemoteRepo} setRemoteRepo={setGitRemoteRepo} author={authorDetails} setAuthor={setAuthorDetails} />
             <Footer />
         </ThemeProvider>
     </div>
