@@ -12,6 +12,7 @@ function TerminalInput(props) {
 
     function evaluateInput(userInput) {
         const commandRegex = {
+            "stdir": /^stdir (.+)$/,
             "git init": /^git init$/,
             "git clone": /^git clone "(.+)"/,
             "git name": /^git config --global user\.name "(.+)"$/,
@@ -84,18 +85,16 @@ function TerminalInput(props) {
                         break;
 
                     case "git name":
-                        const username = match[1];
                         props.setAuthor({
                             ...props.author,
-                            name: username
+                            name: match[1]
                         })
                         sendToLog(userInput, "Name has been set.")
                         break;
                     case "git email":
-                        const useremail = match[1];
                         props.setAuthor({
                             ...props.author,
-                            email: useremail
+                            email: match[1]
                         })
                         sendToLog(userInput, "Email has been set.")
                         break;
@@ -147,7 +146,7 @@ function TerminalInput(props) {
                         const commitMessage = match[1];
                         const commit = {
                             hash: (props.repo.commits.length + 1).toString(),
-                            author: props.author,
+                            author: props.author.name,
                             message: commitMessage,
                             timestamp: new Date().toISOString(),
                             changes: [...props.repo.stagedFiles]
@@ -286,6 +285,10 @@ function TerminalInput(props) {
                         sendToLog(userInput, fileNamesList);
                         break;
 
+                    case "stdir":
+                        setDirectory(match[1])
+                        break;
+                    
                     default:
                         sendToLog(userInput, "'" + userInput + "' is not recognized as an internal or external command, operable program or batch file.");
                 }
