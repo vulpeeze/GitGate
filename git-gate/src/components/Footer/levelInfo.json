@@ -1,0 +1,60 @@
+{
+    "1" : {
+        "id": 1,
+        "name": "Introduction",
+        "title": "Working Together BOIS",
+        "description": "Let's add the homie's name to the list of students.\\nI already have a second commit of it in my time machine boi - let's work together.",
+        "hint": "JUST DO IT, DON'T LET YOUR DREAMS BE MEMES!",
+        "files": [
+            {"name": "Fate Grand/Order", "content": "Tamago no Baka"},
+            {"name": "Genshin Impact", "content": "Lumine"},
+            {"name": "Persona 5", "content": "Haru"}
+        ],
+        "repo": {
+            "initialized": false,
+            "stagedFiles": [
+                {"name": "Genshin Impact", "content": "Lumine"}],
+            "branches": [],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": null,
+            "trackedFiles": [
+                {"name": "Fate Grand/Order", "content": "Tamago no Baka"}]
+        },
+        "remoteRepo": {
+
+        }
+    },
+    "2" : {
+        "id": 2,
+        "name": "Level Dos",
+        "title": "Outta there man!",
+        "description": "Just... just shush",
+        "hint": "JUST DO IT, DON'T LET YOUR MEMES BE DREAMS!",
+        "files": [
+            {"name": "Register", "content": "Bakugou, Lumine, Ishtar"},
+            {"name": "Rosie", "content": "Kat"},
+            {"name": "Kat", "content": "Rosie"}
+        ],
+        "repo": {
+            "initialized": true,
+            "stagedFiles": [{"name": "Rosie", "content": "Kat"},
+            {"name": "Kat", "content": "Rosie"}],
+            "branches": [],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": null,
+            "trackedFiles": []
+        },
+        "remoteRepo": {
+
+        }
+    },
+    "3" : {
+        "id": 3,
+        "name": "TAMAGO no MAE",
+        "description": "This is the third level.",
+        "difficulty": "hard",
+        "unlocked": false
+    }
+}

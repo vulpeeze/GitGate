@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import FileIcon from '@mui/icons-material/InsertDriveFile';
 import { IconButton, TextField } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
@@ -8,6 +8,12 @@ function File(props) {
     const [editing, setEditing] = useState(false);
     const [text, setText] = useState(props.content);
     const ogText = useRef();
+
+    useEffect (() => {
+        const f = props.files.find(file => file.name === props.name)
+        ogText.current = f.content;
+        setText(f.content)
+    }, [props.files, props.name])
 
     function openFile() {
         setEditing(true);

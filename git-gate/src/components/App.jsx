@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Files from "./Files/Files";
-import Footer from "./Footer";
+import Footer from "./Footer/Footer";
 import Terminal from "./Terminal/Terminal";
 import TextBox from "./TextBox";
 import Visuals from "./Visual";
@@ -81,13 +81,25 @@ function App() {
         currentCommit: "a5c5f5e"
     });
 
+    const [textBoxText, setTextBoxText] = useState(<div id="textBox">
+        <h1>Working Together</h1>
+        <p>Let's add your name to our list of students!</p>
+        <p>I already have a second commit of it in my time machine - let's work together!</p>
+        <p className="hint">To go back to old commands, you can press the up and down arrow. That way, you don't have to type in long commands twice.</p>
+    </div>)
+
     return (<div className="container">
         <ThemeProvider theme={theme}>
             <Visuals />
-            <TextBox />
+            <TextBox text={textBoxText} setText={setTextBoxText} />
             <Files files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} />
             <Terminal files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} remoteRepo={gitRemoteRepo} setRemoteRepo={setGitRemoteRepo} author={authorDetails} setAuthor={setAuthorDetails} />
-            <Footer />
+            <Footer
+                setText={setTextBoxText}
+                setFiles={setFilesList}
+                setRepo={setGitRepo}
+                setRemoteRepo={setGitRemoteRepo}
+            />
         </ThemeProvider>
     </div>
     )

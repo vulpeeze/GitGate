@@ -182,14 +182,11 @@ function TerminalInput(props) {
                         var statusMessage = ""
 
                         const stagedFilesToShow = props.repo.stagedFiles.map(file => file.name);
-                        console.log(stagedFilesToShow);
                         const stagedFilesToShowList = ["Changes ready to be committed:"];
                         if (stagedFilesToShow.length > 0) {
                             stagedFilesToShow.forEach(file => stagedFilesToShowList.push(file));
-                            // sendToLog(userInput, stagedFilesToShowList.join("\n"))
                             statusMessage = statusMessage + stagedFilesToShowList.join("\n");
                         } else {
-                            // sendToLog(userInput, "No changes ready to be committed.");
                             statusMessage = statusMessage + "No changes ready to be committed.\n";
                         }
 
@@ -197,10 +194,8 @@ function TerminalInput(props) {
                         const trackedFilesToShowList = ["\nChanges being tracked:"];
                         if (trackedFilesToShow.length > 0) {
                             trackedFilesToShow.forEach(file => trackedFilesToShowList.push(file));
-                            // sendToLog(userInput, trackedFilesToShowList.join("\n"))
                             statusMessage = statusMessage + trackedFilesToShowList.join("\n");
                         } else {
-                            // sendToLog(userInput, "No files currently being tracked.");
                             statusMessage = statusMessage + "\nNo files currently being tracked.\n";
                         }
 
