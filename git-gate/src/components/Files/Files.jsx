@@ -11,7 +11,9 @@ function Files(props) {
                 files={props.files}
                 setFiles={props.setFiles}
                 repo={props.repo}
-                setRepo={props.setRepo} />
+                setRepo={props.setRepo}
+                tasks={props.tasks}
+                setTasks={props.setTasks} />
         ))}
     </div>
     )

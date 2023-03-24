@@ -15,6 +15,23 @@ function File(props) {
         setText(f.content)
     }, [props.files, props.name])
 
+    function checkTaskCompletion() {
+        switch (props.name) {
+            case "Travel Form.txt":
+                if (ogText.current!==text) {
+                    props.setTasks({...props.tasks, addLineToTravelForm: true});
+                }
+                break;
+            case "Travel Form Final.txt":
+                if (ogText.current!==text) {
+                props.setTasks({...props.tasks, addLineToTravelFormFinal: true});
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     function openFile() {
         setEditing(true);
         ogText.current = text;
@@ -37,6 +54,7 @@ function File(props) {
             trackedFiles: trackedFiles
         })
         setEditing(false);
+        checkTaskCompletion();
     }
 
     function handleCancel() {

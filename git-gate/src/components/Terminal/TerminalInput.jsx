@@ -10,6 +10,23 @@ function TerminalInput(props) {
         }
     }
 
+    function checkTaskCompletion(command) {
+        switch (command) {
+            case "ls":
+                if (document.querySelector('.task').id==="viewLocations") {
+                    props.setTasks({...props.tasks, viewLocations: true});
+                }
+                break;
+            case "touch":
+                if (document.querySelector('.task').id==="filecreation") {
+                    props.setTasks({...props.tasks, filecreation: true});
+                }
+                break;
+            default:
+                break;
+        }
+    }
+
     function evaluateInput(userInput) {
         const commandRegex = {
             "stdir": /^stdir (.+)$/,
@@ -326,6 +343,7 @@ function TerminalInput(props) {
                     default:
                         sendToLog(userInput, "'" + userInput + "' is not recognized as an internal or external command, operable program or batch file.");
                 }
+                checkTaskCompletion(command)
                 return;
             }
         }

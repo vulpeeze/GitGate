@@ -2,44 +2,19 @@
     "1" : {
         "id": 1,
         "name": "Introduction",
-        "title": "Working Together BOIS",
-        "description": "Let's add the homie's name to the list of students.\\nI already have a second commit of it in my time machine boi - let's work together.",
-        "hint": "JUST DO IT, DON'T LET YOUR DREAMS BE MEMES!",
+        "title": "Introduction to GitGate",
+        "description": ["You arrive at a large wooden house, seemingly abandoned. The roof seems to be caving in and the walls are vanadlised with holes and graffiti. Your friend Vicky has requested you to come with her for a special mission. You didn't think much of it but decided to come because she's your friend. But when Vicky opens the door to the house, a pristine looking time machine stands tall in front of you.", "\"Did you remember to pack your bags and paperwork?\" she asked as she checked her own."],
+        "hint": "Click on the files to enable edit mode and view their contents. You can save any changes or cancel changes.",
+        "task": "Edit and save your form.",
+        "taskName": "addLineToTravelForm",
         "files": [
-            {"name": "Fate Grand/Order", "content": "Tamago no Baka"},
-            {"name": "Genshin Impact", "content": "Lumine"},
-            {"name": "Persona 5", "content": "Haru"}
+            {"name": "Backpack", "content": "- Toothpaste\u000A- Toothbrush\u000A- Flashlight\u000A- Compass\u000A- Water\u000A- Clothes"},
+            {"name": "Vicky's Travel Form.txt", "content": "TIME TRAVEL FORM\u000AName:Vicky\u000AAge:17\u000ADestination:???\u000AReasons for time travel:\u000A1. Find the legendary Spudcalibur\u000A2. Play Yu-Gi-Oh in Ancient Egypt\u000A3. Have fun"},
+            {"name": "Travel Form.txt", "content": "TIME TRAVEL FORM\u000AName: \u000AAge: \u000ADestination: \u000AReasons for time travel:\u000A1. \u000A2. \u000A3. "}
         ],
         "repo": {
             "initialized": false,
-            "stagedFiles": [
-                {"name": "Genshin Impact", "content": "Lumine"}],
-            "branches": [],
-            "activeBranch": "main",
-            "commits": [],
-            "currentCommit": null,
-            "trackedFiles": [
-                {"name": "Fate Grand/Order", "content": "Tamago no Baka"}]
-        },
-        "remoteRepo": {
-
-        }
-    },
-    "2" : {
-        "id": 2,
-        "name": "Level Dos",
-        "title": "Outta there man!",
-        "description": "Just... just shush",
-        "hint": "JUST DO IT, DON'T LET YOUR MEMES BE DREAMS!",
-        "files": [
-            {"name": "Register", "content": "Bakugou, Lumine, Ishtar"},
-            {"name": "Rosie", "content": "Kat"},
-            {"name": "Kat", "content": "Rosie"}
-        ],
-        "repo": {
-            "initialized": true,
-            "stagedFiles": [{"name": "Rosie", "content": "Kat"},
-            {"name": "Kat", "content": "Rosie"}],
+            "stagedFiles": [],
             "branches": [],
             "activeBranch": "main",
             "commits": [],
@@ -50,11 +25,243 @@
 
         }
     },
+    "2" : {
+        "id": 2,
+        "name": "Backups",
+        "title": "Making Backups",
+        "description": ["Now that the two of you have your paperwork and backpacks, you are ready to start your journey! Vicky heads into the time machine first, you following in quite closely. Your eyes swirl as the material realm starts to disappear, only to reappear a few moments later.", "Instead of heading back in time, you seemed to be at a large establishment. \"Hey, let's go! This is the university I was telling you about. We need to get our time travelling licences before we can travel.\" she reassured you.", "Though as you start to follow Vicky, you pull out your travel form... or at least half of it. Unlike you, it didn't seem to have survived the journey."],
+        "hint": "Make lots of copies of your travel form so you don't have to fill one in from the beginning again.",
+        "task": "Edit and save your final form.",
+        "taskName": "addLineToTravelFormFinal",
+        "files": [
+            {"name": "Travel Form Base.txt", "content": "TIME TRAVEL FORM\u000AName: \u000AAge: \u000ADestination: \u000AReasons for time travel:\u000A1. \u000A2. \u000A3. "},
+            {"name": "Travel Form v1.txt", "content": "TIME TRAVEL FORM\u000AName: \u000AAge: \u000ADestination: \u000AReasons for time travel:\u000A1. So I can undo mistakes. \u000A2. \u000A3. "},
+            {"name": "Travel Form v2.txt", "content": "TIME TRAVEL FORM\u000AName: \u000AAge: \u000ADestination: \u000AReasons for time travel:\u000A1. So I can undo mistakes. \u000A2. To track my projects over time. \u000A3. "},
+            {"name": "Travel Form Final.txt", "content": "TIME TRAVEL FORM\u000AName: \u000AAge: \u000ADestination: \u000AReasons for time travel:\u000A1. \u000A2. \u000A3. "}
+        ],
+        "repo": {
+            "initialized": false,
+            "stagedFiles": [],
+            "branches": [],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": null,
+            "trackedFiles": []
+        },
+        "remoteRepo": {
+            "name": "remoteRepo",
+            "url": "https://github.com/your-username/your-repo.git",
+            "branches": ["main"],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": "a5c5f5e"
+        }
+    },
     "3" : {
         "id": 3,
-        "name": "TAMAGO no MAE",
-        "description": "This is the third level.",
-        "difficulty": "hard",
-        "unlocked": false
+        "name": "LS",
+        "title": "Laying it all out.",
+        "description": ["Once you got past the gates, and the teacher's mean eyes, with your several different forms, Vicky insisted on finding the vacation board. It wasn't long before you were face to face with a large board with pictures of different exotic spots. Where would you go?"],
+        "hint": "Now it's time to explore the terminal! Type in 'ls' and see what happens.",
+        "task": "View the vacation locations.",
+        "taskName": "viewLocations",
+        "files": [
+            {"name": "Egypt", "content": "Pyramids, Pharoahs and Camels!"},
+            {"name": "Greece", "content": "Picturesque islands and ancient ruins."},
+            {"name": "Italy", "content": "Historic, cultural, and delicious cuisine."},
+            {"name": "Romania", "content": "The Home of Count Dracula"},
+            {"name": "Iceland", "content": "A frozen wonderland."}
+        ],
+        "repo": {
+            "initialized": false,
+            "stagedFiles": [],
+            "branches": [],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": null,
+            "trackedFiles": []
+        },
+        "remoteRepo": {
+            "name": "remoteRepo",
+            "url": "https://github.com/your-username/your-repo.git",
+            "branches": ["main"],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": "a5c5f5e"
+        }
+    },
+    "4" : {
+        "id": 4,
+        "name": "Touch and Remove",
+        "title": "Creation and Destruction",
+        "description": ["Though going on holiday would be nice, you won't be going anywhere anytime soon if you don't get your licence. You and Vicky ended up with different classes, so you bid her farewell as you went to your own class.", "As you enter your classroom, you take your seat. A few moments later, you notice how small the class is. Time travel must be not too popular.", "\"Quiet everyone, today's lesson is on creation and destruction. Time travelling essentially creates a new space in time. So when you travel, you are creating a new timeline that you partially control.\""],
+        "hint": "Use the command touch to create a new timeline. For example, touch textFile.txt.",
+        "task": "Create a new file",
+        "taskName": "filecreation",
+        "files": [],
+        "repo": {
+            "initialized": false,
+            "stagedFiles": [],
+            "branches": [],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": null,
+            "trackedFiles": []
+        },
+        "remoteRepo": {
+            "name": "remoteRepo",
+            "url": "https://github.com/your-username/your-repo.git",
+            "branches": ["main"],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": "a5c5f5e"
+        }
+    },
+    "A" : {
+        "id": 3,
+        "name": "",
+        "title": "",
+        "description": [""],
+        "hint": "",
+        "task": "",
+        "taskName": "",
+        "files": [
+            {"name": "", "content": ""}
+        ],
+        "repo": {
+            "initialized": false,
+            "stagedFiles": [],
+            "branches": [],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": null,
+            "trackedFiles": []
+        },
+        "remoteRepo": {
+            "name": "remoteRepo",
+            "url": "https://github.com/your-username/your-repo.git",
+            "branches": ["main"],
+            "activeBranch": "main",
+            "commits": [],
+            "currentCommit": "a5c5f5e"
+        }
+    },
+    "9" : {
+        "id": 9,
+        "name": "Tamago Trio",
+        "title": "Ooof",
+        "description": ["Despacito"],
+        "hint": "JUST DO IT, DON'T LET YOUR MEMES BE DREAMS!",
+        "files": [
+            {"name": "Register", "content": "Bakugou, Lumine, Ishtar"},
+            {"name": "Rosie", "content": "Kat"},
+            {"name": "Kat", "content": "Rosie"},
+            {"name": "Kata", "content": "Rosie"}
+        ],
+        "repo": {
+            "initialized": true,
+            "stagedFiles": [{"name": "Rosie", "content": "Kat"},
+            {"name": "Kat", "content": "Rosie"}],
+            "branches": [],
+            "activeBranch": "main",
+            "commits": [
+                {
+                    "author": "Jane Smith",
+                    "changes": [
+                        {
+                            "name": "Rosie",
+                            "content": "Lumine"
+                        },
+                        {
+                            "name": "Baka",
+                            "content": "ASDASD"
+                        },
+                        {
+                            "name": "Ya Ro",
+                            "content": "Asf"
+                        }
+                    ],
+                    "hash": "7",
+                    "message": "bakaya ro maaaan",
+                    "timestamp": "2023-03-23T22:56:19.573Z",
+                    "branch": "main"
+                },
+                {
+                    "author": "Lumine",
+                    "changes": [
+                        {
+                            "name": "Rosie",
+                            "content": "Lumine"
+                        },
+                        {
+                            "name": "Baka",
+                            "content": "ASDASD"
+                        },
+                        {
+                            "name": "Ya Ro",
+                            "content": "Asf"
+                        }
+                    ],
+                    "hash": "9",
+                    "message": "Genshin Impact",
+                    "timestamp": "2023-03-23T22:57:24.573Z",
+                    "branch": "main"
+                },
+                {
+                    "author": "Yae Miko",
+                    "changes": [
+                        {
+                            "name": "Rosie",
+                            "content": "Lumine"
+                        },
+                        {
+                            "name": "Baka",
+                            "content": "ASDASD"
+                        },
+                        {
+                            "name": "Ya Ro",
+                            "content": "Asf"
+                        }
+                    ],
+                    "hash": "12",
+                    "message": "Raiden Loser",
+                    "timestamp": "2023-03-23T22:59:49.573Z",
+                    "branch": "main"
+                }
+            ],
+            "currentCommit": null,
+            "trackedFiles": []
+        },
+        "remoteRepo": {
+            "name": "remoteRepo",
+            "url": "https://github.com/your-username/your-repo.git",
+            "branches": ["main"],
+            "activeBranch": "main",
+            "commits": [
+                {
+                    "hash": "a5c5f5e",
+                    "message": "Initial commit",
+                    "branch": "main",
+                    "author": "John Doe",
+                    "date": "2022-01-01 10:00:00",
+                    "changes": [
+                        { "type": "add", "name": "index.html" },
+                        { "type": "add", "name": "styles.css" },
+                        { "type": "add", "name": "script.js" }
+                    ]
+                },
+                {
+                    "hash": "1",
+                    "message": "Update styles",
+                    "branch": "main",
+                    "author": "Jane Smith",
+                    "date": "2022-01-02 14:30:00",
+                    "changes": [
+                        { "type": "edit", "name": "styles.css" }
+                    ]
+                }
+            ],
+            "currentCommit": "a5c5f5e"
+        }
     }
 }

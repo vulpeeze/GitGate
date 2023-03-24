@@ -6,10 +6,12 @@ function Level(props) {
     const info = levelInfo[props.id];
     const changeLevel = e => {
         props.handleClose()
+        const description = info['description'].map(para => <p>{para}</p>)
         props.setText(<div id="textBox">
             <h1>{info['title']}</h1>
-            <p>{info['description']}</p>
+            {description}
             <p className="hint">{info['hint']}</p>
+            <div className="task" id={info['taskName']}>{info['task']}</div>
         </div>)
         props.setFiles(info['files'])
         props.setRepo({

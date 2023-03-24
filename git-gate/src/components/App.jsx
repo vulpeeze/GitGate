@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Files from "./Files/Files";
 import Footer from "./Footer/Footer";
 import Terminal from "./Terminal/Terminal";
@@ -33,6 +33,24 @@ function App() {
         {name: "File A", content: "Tamamo Vitch"},
         {name: "File R", content: "Tamamo Gucci"}
     ]);
+    const [taskCompletion, setTaskCompletion] = useState({
+        addLineToTravelForm: false,
+        addLineToTravelFormFinal: false,
+        viewLocations: false,
+        filecreation: false,
+        commitFiles: false
+    })
+
+    useEffect(() => {
+        var a = document.querySelectorAll('.task');
+        a.forEach(element => {
+            if (taskCompletion[element.id]===true) {
+                element.style.backgroundColor = "green";
+            } else {
+                element.style.backgroundColor = "#a51a1a";
+            }
+        });
+    }, [taskCompletion, filesList])
 
     const [authorDetails, setAuthorDetails] = useState({
         name: "Filler Name",
@@ -86,14 +104,16 @@ function App() {
         <p>Let's add your name to our list of students!</p>
         <p>I already have a second commit of it in my time machine - let's work together!</p>
         <p className="hint">To go back to old commands, you can press the up and down arrow. That way, you don't have to type in long commands twice.</p>
+        <div className="task">Baka ya ro</div>
     </div>)
+  
 
     return (<div className="container">
         <ThemeProvider theme={theme}>
-            <Visuals />
+            <Visuals repo={gitRepo} />
             <TextBox text={textBoxText} setText={setTextBoxText} />
-            <Files files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} />
-            <Terminal files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} remoteRepo={gitRemoteRepo} setRemoteRepo={setGitRemoteRepo} author={authorDetails} setAuthor={setAuthorDetails} />
+            <Files files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} tasks={taskCompletion} setTasks={setTaskCompletion} />
+            <Terminal files={filesList} setFiles={setFilesList} repo={gitRepo} setRepo={setGitRepo} remoteRepo={gitRemoteRepo} setRemoteRepo={setGitRemoteRepo} author={authorDetails} setAuthor={setAuthorDetails} tasks={taskCompletion} setTasks={setTaskCompletion} />
             <Footer
                 setText={setTextBoxText}
                 setFiles={setFilesList}

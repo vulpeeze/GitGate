@@ -41,11 +41,24 @@ html, body {
     color: white;
     padding: 0 2%;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position: relative;
 }
 #textBox .hint {
     color: #787878;
 }
-
+.task {
+    background-color: rgb(165, 26, 26);
+    border-radius: 10px;
+    font-size: 1.2em;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 10px;
+}
 
 #terminal   {
     grid-area: 3 / 2 / 4 / 3;
@@ -122,4 +135,33 @@ footer > div {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+}
+
+
+.rd3t-label {
+    translate: -100px 33px !important;
+    font-size: 13px;
+    visibility: hidden;
+}
+.rd3t-parent-node:hover .rd3t-label {
+    visibility: visible;
+}
+.node__root > circle,
+.node__branch > circle {
+    fill: #292a6d;
+    stroke-width: 5px;
+}
+
+.node__leaf > circle {
+    fill: green;
+    stroke: pink;
+    stroke-width: 5px;
+}
+.node__root:hover > circle,
+.node__branch:hover > circle,
+.node__leaf > circle {
+    fill: #a5c9f9;
+}
+.rd3t-tree-container {
+    height: 150% !important;
+}

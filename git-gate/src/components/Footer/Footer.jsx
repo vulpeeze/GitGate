@@ -53,11 +53,9 @@ function Footer(props) {
                 <Level id={1} handleClose={handleClose} setText={props.setText} setFiles={props.setFiles} setRepo={props.setRepo} setRemoteRepo={props.setRemoteRepo} />
                 <Level id={2} handleClose={handleClose} setText={props.setText} setFiles={props.setFiles} setRepo={props.setRepo} setRemoteRepo={props.setRemoteRepo} />
                 <Level id={3} handleClose={handleClose} setText={props.setText} setFiles={props.setFiles} setRepo={props.setRepo} setRemoteRepo={props.setRemoteRepo} />
-                {/* <Level text="Level 4" id={4} title="Tamamo Cat" handleClose={handleClose} setText={props.setText} />
-                <Level text="Level 5" id={5} title="Tamamo Vitch" handleClose={handleClose} setText={props.setText} />
-                <Level text="Level 6" id={6} title="Tamamo Gucci" handleClose={handleClose} setText={props.setText} />
-                <Level text="Level 7" id={7} title="Tamamo Shark" handleClose={handleClose} setText={props.setText} />
-                <Level text="Level 8" id={8} title="Tamago no Mae" handleClose={handleClose} setText={props.setText} /> */}
+                <Level id={4} handleClose={handleClose} setText={props.setText} setFiles={props.setFiles} setRepo={props.setRepo} setRemoteRepo={props.setRemoteRepo} />
+                {/* <Level id={5} handleClose={handleClose} setText={props.setText} setFiles={props.setFiles} setRepo={props.setRepo} setRemoteRepo={props.setRemoteRepo} />
+                <Level id={6} handleClose={handleClose} setText={props.setText} setFiles={props.setFiles} setRepo={props.setRepo} setRemoteRepo={props.setRemoteRepo} /> */}
             </ul>
         </DialogContent>
         </Dialog>
