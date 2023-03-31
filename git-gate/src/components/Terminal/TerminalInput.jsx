@@ -22,6 +22,36 @@ function TerminalInput(props) {
                     props.setTasks({...props.tasks, filecreation: true});
                 }
                 break;
+            case "rm":
+                if (document.querySelector('.task').id==="filedestruction") {
+                    props.setTasks({...props.tasks, filedestruction: true});
+                }
+                break;
+            case "git init":
+                if (document.querySelector('.task').id==="repoInit") {
+                    props.setTasks({...props.tasks, repoInit: true});
+                }
+                break;
+            case "git name":
+                if (document.querySelector('.task').id==="gitName") {
+                    props.setTasks({...props.tasks, gitName: true});
+                }
+                break;
+            case "git email":
+                if (document.querySelector('.task').id==="gitEmail") {
+                    props.setTasks({...props.tasks, gitEmail: true});
+                }
+                break;
+            case "git add":
+                if (document.querySelector('.task').id==="addFiles" && props.repo.trackedFiles.length > 0) {
+                    props.setTasks({...props.tasks, addFiles: true});
+                }
+                break;
+            case "git commit":
+                if (document.querySelector('.task').id==="commitFiles" && props.repo.stagedFiles.length > 0) {
+                    props.setTasks({...props.tasks, commitFiles: true});
+                }
+                break;
             default:
                 break;
         }
@@ -34,6 +64,7 @@ function TerminalInput(props) {
             "git clone": /^git clone "(.+)"/,
             "git name": /^git config --global user\.name "(.+)"$/,
             "git email": /^git config --global user\.email "(.+)"$/,
+            "git details": /^git details$/,
             "git add": /^git add (.+)$/,
             "git commit": /^git commit -m "(.+)"$/,
             "git status": /^git status$/,
@@ -117,6 +148,9 @@ function TerminalInput(props) {
                         })
                         sendToLog(userInput, "Email has been set.")
                         break;
+                    case "git details":
+                        sendToLog(userInput, "Username: " + props.author.name + "\nEmail: " + props.author.email)
+                        break;
 
                     case "git add":
                         if (!props.repo.initialized) {
@@ -128,6 +162,10 @@ function TerminalInput(props) {
                         const stagedFiles = [...props.repo.stagedFiles]
                         
                         if (fileName === "." || fileName === "*") {
+                            if (props.repo.trackedFiles.length < 1) {
+                                sendToLog(userInput, "No files to add to staging area.")
+                                break;
+                            }
                             props.repo.trackedFiles.forEach(file => {
                                 if (!props.repo.stagedFiles.includes(file)) {
                                     stagedFiles.push(file);

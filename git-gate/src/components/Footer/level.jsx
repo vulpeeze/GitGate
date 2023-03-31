@@ -6,6 +6,7 @@ function Level(props) {
     const info = levelInfo[props.id];
     const changeLevel = e => {
         props.handleClose()
+        props.setLevel(props.id)
         const description = info['description'].map(para => <p>{para}</p>)
         props.setText(<div id="textBox">
             <h1>{info['title']}</h1>

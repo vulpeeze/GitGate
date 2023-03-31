@@ -6,7 +6,7 @@ html, body {
 
 .container {
     display: grid;
-    grid-template-columns: 60% 40%;
+    grid-template-columns: 50% 50%;
     grid-template-rows: 1fr 20% 30% 50px;
     height: 100vh;
 }
@@ -165,3 +165,14 @@ footer > div {
 .rd3t-tree-container {
     height: 150% !important;
 }
+.rd3t-grap {
+    position: relative;
+  }
+  
+  .rd3t-grap svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  

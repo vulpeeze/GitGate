@@ -38,6 +38,11 @@ function App() {
         addLineToTravelFormFinal: false,
         viewLocations: false,
         filecreation: false,
+        filedestruction: false,
+        repoInit: false,
+        gitName: false,
+        gitEmail: false,
+        addFiles: false,
         commitFiles: false
     })
 
@@ -100,11 +105,11 @@ function App() {
     });
 
     const [textBoxText, setTextBoxText] = useState(<div id="textBox">
-        <h1>Working Together</h1>
+        {/* <h1>Working Together</h1>
         <p>Let's add your name to our list of students!</p>
         <p>I already have a second commit of it in my time machine - let's work together!</p>
         <p className="hint">To go back to old commands, you can press the up and down arrow. That way, you don't have to type in long commands twice.</p>
-        <div className="task">Baka ya ro</div>
+        <div className="task">Baka ya ro</div> */}
     </div>)
   
 
