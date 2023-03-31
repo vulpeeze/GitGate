@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/GitGate/git-gate/public/static/js/main.b6c2d82d.js",
+    "index.html": "/GitGate/git-gate/public/index.html",
+    "main.b6c2d82d.js.map": "/GitGate/git-gate/public/static/js/main.b6c2d82d.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.b6c2d82d.js"
+  ]
+}
